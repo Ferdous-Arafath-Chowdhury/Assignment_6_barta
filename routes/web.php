@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,23 @@ Route::put('/edit_profile/{id}' , [UserController::class , 'update'])->name('upd
 
 Route::post('/add', [UserController::class , 'add'])->name('add');
 Route::post('/log' , [UserController::class , 'HandleLogin'])->name('HandleLogin');
-Route::get('/profile' ,[ UserController::class , 'profile'])->name('profile');
+Route::get('/profile' ,[ UserController::class , 'profile'])->name('profile'); 
+Route::post('/add_post', [PostController::class , 'add_post'])->name('add_post');
+Route::get('/edit_post/{id}',  [PostController::class , 'edit_post'])->name('edit_post');
+
+Route::put('/update/{post_id}', [PostController::class, 'update'])->name('update');
+// Route::get('/delete_post/{post_id}' , [PostController::class, 'delete_post'])->name('delete_post');
+Route::delete('/destroy/{post_id}', [PostController::class, 'destroy'])->name('destroy');
+
+
+ 
+
+
+
+
+
+
+
+Route::view('/barta','barta-card')->name('bartcard');
+Route::view('/post','post')->name('post'); 
 

@@ -16,7 +16,7 @@ class UserController extends Controller
         $validate_data = $req->validate([
             'name' => ['required'], 
             'username' => ['required' , 'unique:users'],
-            'email' => ['required','unique: users'],
+            'email' => ['required', 'unique:users'],
             'password' => ['required' , 'min:6'],
         ]);
         
@@ -80,7 +80,9 @@ class UserController extends Controller
         DB::table('users')->where('id', $id)->update($updateData);
         
         return  redirect('profile');
-    }
+    } 
+
+    
     
 
 
